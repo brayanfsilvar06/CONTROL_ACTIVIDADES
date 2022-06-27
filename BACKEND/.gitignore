@@ -1,0 +1,45 @@
+
+### Java ###
+# Compiled class file
+/ControlActividadesRestApi/*.class
+
+# Log file
+/ControlActividadesRestApi/*.log
+
+# BlueJ files
+/ControlActividadesRestApi/*.ctxt
+
+# Mobile Tools for Java (J2ME)
+/ControlActividadesRestApi/.mtj.tmp/
+
+# Package Files #
+/ControlActividadesRestApi/*.jar
+/ControlActividadesRestApi/*.war
+/ControlActividadesRestApi/*.nar
+/ControlActividadesRestApi/*.ear
+/ControlActividadesRestApi/*.zip
+/ControlActividadesRestApi/*.tar.gz
+/ControlActividadesRestApi/*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+/ControlActividadesRestApi/hs_err_pid*
+/ControlActividadesRestApi/replay_pid*
+
+### Maven ###
+/ControlActividadesRestApi/target/
+/ControlActividadesRestApi/pom.xml.tag
+/ControlActividadesRestApi/pom.xml.releaseBackup
+/ControlActividadesRestApi/pom.xml.versionsBackup
+/ControlActividadesRestApi/pom.xml.next
+/ControlActividadesRestApi/release.properties
+/ControlActividadesRestApi/dependency-reduced-pom.xml
+/ControlActividadesRestApi/buildNumber.properties
+/ControlActividadesRestApi/.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+/ControlActividadesRestApi/.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+/ControlActividadesRestApi/.project
+# JDT-specific (Eclipse Java Development Tools)
+/ControlActividadesRestApi/.classpath
