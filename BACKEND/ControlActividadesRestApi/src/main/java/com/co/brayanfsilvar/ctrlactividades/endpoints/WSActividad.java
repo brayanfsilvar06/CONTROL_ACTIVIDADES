@@ -11,6 +11,7 @@ import com.co.brayanfsilvar.ctrlactividades.model.response.ResponseGenerico;
 import com.co.brayanfsilvar.ctrlactividades.security.Secured;
 import com.co.brayanfsilvar.ctrlactividades.service.ActividadService;
 import com.co.brayanfsilvar.ctrlactividades.service.EstadoActividadService;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -40,11 +41,18 @@ public class WSActividad {
         //Constructor
     }
 
-    @GET
+    @POST
     @Path("/listarActividades")
     @Secured
     public ResponseActividades obtenerActividades() {
         return new ActividadService().obtenerActividades();
+    }
+
+    @POST
+    @Path("/obtenerListadoActividades")
+    @Secured
+    public List<Actividad> obtenerListadoActividades() {
+        return new ActividadService().obtenerListadoActividades();
     }
 
     @GET

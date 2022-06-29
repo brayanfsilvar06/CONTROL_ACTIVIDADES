@@ -7,7 +7,6 @@ package com.co.brayanfsilvar.ctrlactividades.model.response;
 
 import com.co.brayanfsilvar.ctrlactividades.domain.Actividad;
 import com.co.brayanfsilvar.ctrlactividades.domain.EstadoActividad;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,9 +15,9 @@ import java.util.List;
  */
 public class ResponseActividades {
 
-    private Actividad actividad = null;
-    private List<Actividad> listaActividades = null;
-    private List<EstadoActividad> listaEstadoActividades = null;
+    private Actividad actividad;
+    private List<Actividad> listaActividades;
+    private List<EstadoActividad> listaEstadoActividades;
     private ResponseGenerico responseGenerico;
 
     public Actividad getActividad() {

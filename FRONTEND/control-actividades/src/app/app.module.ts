@@ -1,18 +1,61 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CtrlActividadComponent } from './Actividades/ctrl-actividad/ctrl-actividad.component';
+
+/**
+ * COMPONENTES PRIMENG
+ */
+import { DividerModule } from 'primeng/divider';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ButtonModule } from 'primeng/button';
+import { PanelModule } from 'primeng/panel';
+import { PasswordModule } from 'primeng/password';
+import { CardModule } from 'primeng/card';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CalendarModule } from 'primeng/calendar';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CtrlActividadComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    DividerModule,
+    InputTextModule,
+    InputNumberModule,
+    PasswordModule,
+    ButtonModule,
+    PanelModule,
+    CardModule,
+    DropdownModule,
+    InputTextareaModule,
+    CalendarModule,
+    ToastModule,
+    MessageModule,
+    MessagesModule,
+    KeyFilterModule,
+    ProgressSpinnerModule    
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

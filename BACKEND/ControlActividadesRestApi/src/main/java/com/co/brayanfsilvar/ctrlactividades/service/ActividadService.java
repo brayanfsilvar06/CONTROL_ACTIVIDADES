@@ -49,6 +49,10 @@ public class ActividadService extends ApplicationLog {
     private List<Actividad> findAllActividades() {
         return actividadDao.findAllActividades();
     }
+    
+    public List<Actividad> obtenerListadoActividades() {
+        return this.findAllActividades();
+    }
 
     public ResponseActividades obtenerActividades() {
         ResponseActividades responseActividades = new ResponseActividades();
@@ -108,6 +112,8 @@ public class ActividadService extends ApplicationLog {
         ResponseGenerico responseGenerico = new ResponseGenerico();
         try {
             if (actualizarActividad != null && actualizarActividad.getICodigo() != null) {
+                Long marcaTiempoFechaEjecucion = actualizarActividad.getLMarcaTiempoEjecucionEstimada() != null ? actualizarActividad.getLMarcaTiempoEjecucionEstimada() : new Date().getTime();
+                actualizarActividad.setFFechaEstimadaEjecucion(new Date(marcaTiempoFechaEjecucion));
                 Actividad busquedaActividad = this.findActividadById(actualizarActividad.getICodigo());
                 if (busquedaActividad != null && busquedaActividad.getICodigo() != null) {
                     Actividad actividadActualizada = this.updateActividad(actualizarActividad);
@@ -141,7 +147,7 @@ public class ActividadService extends ApplicationLog {
             if (eliminarActividad != null && eliminarActividad.getICodigo() != null) {
                 Actividad busquedaActividad = this.findActividadById(eliminarActividad.getICodigo());
                 if (busquedaActividad != null && busquedaActividad.getICodigo() != null) {
-                    this.deleteActividad(eliminarActividad);
+                    this.deleteActividad(busquedaActividad);
                     responseGenerico.setbSuccess(Boolean.TRUE);
                     responseGenerico.setsMsj("Se ha eliminado correctamente la actividad.");
                 } else {
