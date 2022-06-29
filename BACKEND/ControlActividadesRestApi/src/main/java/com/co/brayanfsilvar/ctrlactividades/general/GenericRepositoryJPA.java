@@ -59,7 +59,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             if (entityManager.getTransaction().isActive()) {
                 entityManager.getTransaction().rollback();
             }
-            e.printStackTrace();
+            throw e;
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -86,7 +86,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             if (this.entityManager.getTransaction().isActive()) {
                 this.entityManager.getTransaction().rollback();
             }
-            e.printStackTrace();
+            throw e;
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -110,7 +110,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             if (this.entityManager.getTransaction().isActive()) {
                 this.entityManager.getTransaction().rollback();
             }
-            e.printStackTrace();
+            throw e;
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -131,7 +131,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             this.entityManager = connDBJPA.getEntityManager();
             findClass = (T) this.entityManager.find(type, id);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw e;
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -157,8 +157,8 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             TypedQuery<T> query = this.entityManager.createQuery(criteriaQuery);
             lstFindAll = query.getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
             lstFindAll = null;
+            throw e;
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -171,7 +171,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
      * @autor BrayanFSilvaR
      * @param sTipoOrder
      * @param sCampoOrder
-     * @return List<T> 
+     * @return List<T>
      */
     @Override
     public List<T> findAllOrderByCampo(String sTipoOrder, String sCampoOrder) {
@@ -199,8 +199,8 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             TypedQuery<T> query = entityManager.createQuery(criteriaQuery);
             listFindAllOrderByCampo = query.getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
             listFindAllOrderByCampo = null;
+            throw e;
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -227,8 +227,8 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             query.setParameter(sCampoFind, sValueFind);
             list = query.getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
             list = null;
+            throw e;
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -254,8 +254,8 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             query.setParameter(sCampoFind, valueEntity);
             list = query.getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
             list = null;
+            throw e;
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();

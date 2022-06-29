@@ -42,9 +42,9 @@ public class EstadoActividad implements Serializable {
     @Size(min = 1, max = 80)
     @Column(name = "C_DESCRIPCION")
     private String cDescripcion;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iEstadoActividad")
-    private List<Actividad> actividadList;
+//
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iEstadoActividad")
+//    private List<Actividad> actividadList;
 
     public EstadoActividad() {
     }
@@ -53,29 +53,29 @@ public class EstadoActividad implements Serializable {
         this.iCodigo = iCodigo;
     }
 
-    public Long getiCodigo() {
+    public Long getICodigo() {
         return iCodigo;
     }
 
-    public void setiCodigo(Long iCodigo) {
+    public void setICodigo(Long iCodigo) {
         this.iCodigo = iCodigo;
     }
 
-    public String getcDescripcion() {
+    public String getCDescripcion() {
         return cDescripcion;
     }
 
-    public void setcDescripcion(String cDescripcion) {
+    public void setCDescripcion(String cDescripcion) {
         this.cDescripcion = cDescripcion;
     }
-
-    public List<Actividad> getActividadList() {
-        return actividadList;
-    }
-
-    public void setActividadList(List<Actividad> actividadList) {
-        this.actividadList = actividadList;
-    }
+//
+//    public List<Actividad> getActividadList() {
+//        return actividadList;
+//    }
+//
+//    public void setActividadList(List<Actividad> actividadList) {
+//        this.actividadList = actividadList;
+//    }
 
     @Override
     public int hashCode() {

@@ -81,8 +81,8 @@ public class Persona implements Serializable {
     @ManyToOne(optional = false)
     private TipoIdentificacion iTipoIdentificacion;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iPersonaAsignada")
-    private List<Actividad> actividadList;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iPersonaAsignada")
+//    private List<Actividad> actividadList;
 
     public Persona() {
     }
@@ -130,45 +130,53 @@ public class Persona implements Serializable {
         this.cEmail = cEmail;
     }
 
-    public String getcSegundoApellido() {
+    public String getCSegundoApellido() {
         return cSegundoApellido;
     }
 
-    public void setcSegundoApellido(String cSegundoApellido) {
+    public void setCSegundoApellido(String cSegundoApellido) {
         this.cSegundoApellido = cSegundoApellido;
     }
 
-    public String getcEmpleado() {
+    public String getCEmpleado() {
         return cEmpleado;
     }
 
-    public void setcEmpleado(String cEmpleado) {
+    public void setCEmpleado(String cEmpleado) {
         this.cEmpleado = cEmpleado;
     }
 
-    public TipoIdentificacion getiTipoIdentificacion() {
+    public TipoIdentificacion getTipoIdentificacion() {
         return iTipoIdentificacion;
     }
 
-    public void setiTipoIdentificacion(TipoIdentificacion iTipoIdentificacion) {
+    public void setTipoIdentificacion(TipoIdentificacion iTipoIdentificacion) {
         this.iTipoIdentificacion = iTipoIdentificacion;
     }
 
-    public String getcNumCel() {
+    public String getCNumCel() {
         return cNumCel;
     }
 
-    public void setcNumCel(String cNumCel) {
+    public void setCNumCel(String cNumCel) {
         this.cNumCel = cNumCel;
     }
 
-    public String getcNumeroIdentificacion() {
+    public String getCNumeroIdentificacion() {
         return cNumeroIdentificacion;
     }
 
-    public void setcNumeroIdentificacion(String cNumeroIdentificacion) {
+    public void setCNumeroIdentificacion(String cNumeroIdentificacion) {
         this.cNumeroIdentificacion = cNumeroIdentificacion;
     }
+
+//    public List<Actividad> getActividadList() {
+//        return actividadList;
+//    }
+//
+//    public void setActividadList(List<Actividad> actividadList) {
+//        this.actividadList = actividadList;
+//    }
 
     @Override
     public int hashCode() {

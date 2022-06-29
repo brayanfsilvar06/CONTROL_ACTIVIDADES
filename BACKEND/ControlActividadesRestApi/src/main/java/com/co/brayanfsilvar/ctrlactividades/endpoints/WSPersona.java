@@ -6,6 +6,9 @@
 package com.co.brayanfsilvar.ctrlactividades.endpoints;
 
 import com.co.brayanfsilvar.ctrlactividades.domain.Persona;
+import com.co.brayanfsilvar.ctrlactividades.model.response.ResponsePersonas;
+import com.co.brayanfsilvar.ctrlactividades.security.Secured;
+import com.co.brayanfsilvar.ctrlactividades.service.PersonaService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -38,7 +41,8 @@ public class WSPersona {
 
     @GET
     @Path("/listarEmpleados")
-    public List<Persona> obtenerEmpleados() {
-        return new ArrayList<>();
+    @Secured
+    public ResponsePersonas obtenerEmpleados() {
+        return new PersonaService().listadoEmpleados();
     }
 }

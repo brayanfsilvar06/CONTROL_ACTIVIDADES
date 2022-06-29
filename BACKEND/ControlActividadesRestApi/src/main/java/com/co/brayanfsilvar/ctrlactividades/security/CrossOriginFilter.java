@@ -20,7 +20,7 @@ public class CrossOriginFilter implements ContainerResponseFilter {
 
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext response) {
-        response.getHeaders().putSingle("Access-Control-Allow-Origin", "http://localhost:8080");
+        response.getHeaders().putSingle("Access-Control-Allow-Origin", "*");
         response.getHeaders().putSingle("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         response.getHeaders().putSingle("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Authorization, Access-Control-Request-Method, Access-Control-Request-Headers");
         response.getHeaders().putSingle("Set-Cookie", "ID=" + new Date().getTime() + ";SameSite=strict;Secure;HttpOnly");

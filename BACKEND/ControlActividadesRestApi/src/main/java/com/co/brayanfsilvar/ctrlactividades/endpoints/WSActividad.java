@@ -8,9 +8,9 @@ package com.co.brayanfsilvar.ctrlactividades.endpoints;
 import com.co.brayanfsilvar.ctrlactividades.domain.Actividad;
 import com.co.brayanfsilvar.ctrlactividades.model.response.ResponseActividades;
 import com.co.brayanfsilvar.ctrlactividades.model.response.ResponseGenerico;
+import com.co.brayanfsilvar.ctrlactividades.security.Secured;
 import com.co.brayanfsilvar.ctrlactividades.service.ActividadService;
 import com.co.brayanfsilvar.ctrlactividades.service.EstadoActividadService;
-import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -40,34 +40,38 @@ public class WSActividad {
         //Constructor
     }
 
-//    @GET    
-//    @Path("/listarActividades")
-//    public List<Actividad> obtenerActividades() {
-//        return new ActividadService().findAllActividades();
-//    }
+    @GET
+    @Path("/listarActividades")
+    @Secured
+    public ResponseActividades obtenerActividades() {
+        return new ActividadService().obtenerActividades();
+    }
 
-    @GET    
+    @GET
     @Path("/listarEstadoActividades")
-    public ResponseActividades obtenerEstadoActividades()  {
+    @Secured
+    public ResponseActividades obtenerEstadoActividades() {
         return new EstadoActividadService().obtenerListaEstadoActividades();
     }
 
-
     @POST
     @Path("/crearActividad")
+    @Secured
     public ResponseGenerico crearActividad(Actividad actividad) {
-        return new ResponseGenerico();
+        return new ActividadService().crearActividad(actividad);
     }
 
     @POST
     @Path("/actualizarActividad")
+    @Secured
     public ResponseGenerico actualizarActividad(Actividad actividad) {
-        return new ResponseGenerico();
+        return new ActividadService().actualizarActividad(actividad);
     }
 
     @POST
     @Path("/eliminarActividad")
+    @Secured
     public ResponseGenerico eliminarActividad(Actividad actividad) {
-        return new ResponseGenerico();
+        return new ActividadService().eliminarActividad(actividad);
     }
 }
