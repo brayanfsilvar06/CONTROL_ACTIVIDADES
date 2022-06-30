@@ -22,11 +22,16 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { MessageService, ConfirmationService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToolbarModule } from 'primeng/toolbar';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TableModule } from 'primeng/table';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
   declarations: [
@@ -53,9 +58,14 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     MessageModule,
     MessagesModule,
     KeyFilterModule,
-    ProgressSpinnerModule    
+    ProgressSpinnerModule,
+    ToolbarModule,
+    DialogModule,
+    ConfirmDialogModule,
+    TableModule,
+    BadgeModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,7 +17,7 @@ export class RestAuthapiService {
     let fullURL = this.apiURL;
     let requestAuthAPI: RequestAuth;
     requestAuthAPI = {
-      sUsuario: 'CTRL_ACTIVIDADES_2022',
+      sUser: 'CTRL_ACTIVIDADES_2022',
       sPass: 'ZWUxMzRkMzAtZjE3My00YWRiLWJkNmMtYTdlY2ZmZDNmY2M4'
     }
     return this.httpClient.post<ResponseAuthapi>(fullURL, requestAuthAPI, { headers: this.headers });

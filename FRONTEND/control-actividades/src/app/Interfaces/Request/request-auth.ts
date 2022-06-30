@@ -1,4 +1,4 @@
 export interface RequestAuth {
-    sUsuario: string,
+    sUser: string,
     sPass: string
 }

@@ -48,7 +48,7 @@ public class AuthAPIServiceBean extends ApplicationLog {
                 }
             } else {
                 responseAuth.setbRta(Boolean.FALSE);
-                responseAuth.setsMsg("Sin datos para validar.");
+                responseAuth.setsMsg("Sin datos de autenticación.");
             }
 
         } catch (Exception e) {

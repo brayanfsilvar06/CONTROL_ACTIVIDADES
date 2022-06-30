@@ -49,9 +49,26 @@ public class ActividadService extends ApplicationLog {
     private List<Actividad> findAllActividades() {
         return actividadDao.findAllActividades();
     }
-    
+
     public List<Actividad> obtenerListadoActividades() {
-        return this.findAllActividades();
+        List<Actividad> listActividades = new ArrayList<>();
+        List<Actividad> listActividadesTemp = this.findAllActividades();
+        if (listActividadesTemp != null && !listActividadesTemp.isEmpty()) {
+            for (Actividad actividad : listActividadesTemp) {
+                actividad.setLMarcaTiempoEjecucionEstimada(actividad.getFFechaEstimadaEjecucion().getTime());
+                Date fechaActual = new Date();
+                Date fechaEjec = actividad.getFFechaEstimadaEjecucion();
+                Long dias = Long.parseLong("0");
+                if (fechaEjec.after(fechaActual)) {
+                    actividad.setIDiasRetraso(dias);
+                } else {
+                    dias = (Long) ((fechaActual.getTime() - fechaEjec.getTime()) / 86400000);
+                    actividad.setIDiasRetraso(dias);
+                }
+                listActividades.add(actividad);
+            }
+        }
+        return listActividades;
     }
 
     public ResponseActividades obtenerActividades() {
