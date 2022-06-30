@@ -1,0 +1,20 @@
+ALTER TABLE `ctrlactividades`.`personas` 
+ADD CONSTRAINT `FK_ITIPOIDENTIFICACION`
+  FOREIGN KEY (`I_TIPO_IDENTIFICACION`)
+  REFERENCES `ctrlactividades`.`tipo_identificacion` (`I_CODIGO`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `ctrlactividades`.`actividades` 
+ADD CONSTRAINT `FK_IPERSONA_ASIGNADA`
+  FOREIGN KEY (`I_PERSONA_ASIGNADA`)
+  REFERENCES `ctrlactividades`.`personas` (`I_CODIGO`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `ctrlactividades`.`actividades` 
+ADD CONSTRAINT `FK_IESTADOACTIVIDAD`
+  FOREIGN KEY (`I_ESTADO_ACTIVIDAD`)
+  REFERENCES `ctrlactividades`.`estado_actividades` (`I_CODIGO`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;

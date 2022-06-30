@@ -1,0 +1,31 @@
+### Angular ###
+# compiled output
+/control-actividades/dist/
+/control-actividades/tmp/
+/control-actividades/app/**/*.js
+/control-actividades/app/**/*.js.map
+
+# dependencies
+
+/control-actividades/node_modules/
+/control-actividades/bower_components/
+
+# IDEs and editors
+/control-actividades/.idea/
+/control-actividades/.vscode
+# misc
+/control-actividades/.sass-cache/
+/control-actividades/connect.lock/
+/control-actividades/coverage/
+/control-actividades/libpeerconnection.log/
+/control-actividades/npm-debug.log
+/control-actividades/testem.log
+/control-actividades/typings/
+/control-actividades/.angular/
+
+# e2e
+/control-actividades/e2e/*.js
+/control-actividades/e2e/*.map
+
+# System Files
+/control-actividades/.DS_Store/
