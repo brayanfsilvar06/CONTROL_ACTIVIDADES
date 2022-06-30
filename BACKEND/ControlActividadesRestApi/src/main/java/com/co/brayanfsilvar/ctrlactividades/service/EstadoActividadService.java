@@ -11,6 +11,7 @@ import com.co.brayanfsilvar.ctrlactividades.general.ApplicationLog;
 import com.co.brayanfsilvar.ctrlactividades.general.Utilidad;
 import com.co.brayanfsilvar.ctrlactividades.model.response.ResponseActividades;
 import com.co.brayanfsilvar.ctrlactividades.model.response.ResponseGenerico;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,7 +48,8 @@ public class EstadoActividadService extends ApplicationLog {
         return actividadDao.findAllEstadoActividades();
     }
 
-    public ResponseActividades obtenerListaEstadoActividades()  {
+    public ResponseActividades obtenerListaEstadoActividades() {
+
         ResponseActividades responseActividades = new ResponseActividades();
         ResponseGenerico responseGenerico = new ResponseGenerico();
         try {
@@ -59,7 +61,7 @@ public class EstadoActividadService extends ApplicationLog {
                 responseActividades.setListaEstadoActividades(listEstadoActividades);
             } else {
                 responseGenerico.setbSuccess(Boolean.FALSE);
-                responseGenerico.setsMsj("No se han obtenido los estados de actividades");
+                responseGenerico.setsMsj("No se han encontrado los estados de actividades");
                 responseActividades.setResponseGenerico(responseGenerico);
                 responseActividades.setListaEstadoActividades(listEstadoActividades);
             }

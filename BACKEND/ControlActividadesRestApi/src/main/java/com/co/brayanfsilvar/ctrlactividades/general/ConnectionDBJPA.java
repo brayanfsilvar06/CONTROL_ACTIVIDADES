@@ -20,28 +20,36 @@ public class ConnectionDBJPA {
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
-        if (emf == null) {
-            emf = Persistence.createEntityManagerFactory(ST_NOMBRE_PERSISTENCIA);
+        try {
+            if (emf == null) {
+                emf = Persistence.createEntityManagerFactory(ST_NOMBRE_PERSISTENCIA);
+            }
+            if (em == null) {
+                em = emf.createEntityManager();
+            }
+        } catch (Exception e) {
+            throw e;
         }
-        if (em == null) {
-            em = emf.createEntityManager();
-        }
-
         return em;
     }
 
     public void closeEntityManager() {
-        if (emf != null) {
-            if (emf.isOpen()) {
-                emf.close();
+        try {
+            if (emf != null) {
+                if (emf.isOpen()) {
+                    emf.close();
+                }
+                emf = null;
             }
-            emf = null;
-        }
-        if (em != null) {
-            if (em.isOpen()) {
-                em.close();
+            if (em != null) {
+                if (em.isOpen()) {
+                    em.close();
+                }
+                em = null;
             }
-            em = null;
+        } catch (Exception e) {
+            throw e;
+
         }
     }
 }

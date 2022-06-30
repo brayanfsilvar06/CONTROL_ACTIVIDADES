@@ -5,87 +5,87 @@
  */
 package com.co.brayanfsilvar.ctrlactividades.security;
 
-import io.jsonwebtoken.Claims;
+
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
-import javax.xml.bind.DatatypeConverter;
 
 /**
  *
- * @author Brayan F Silva R
+ * @author BrayanFSilvaR
  */
 public class JwtTokenHelper {
 
     private final Long currentTimeInMillis = System.currentTimeMillis();
 
+    private static final String ST_ISSUER_JWT = "CTRL_ACTIVIDADES";
+    private static final String ST_SUBJECT_JWT = "WS_CONSUMES_API";
+    private static final String ST_ALG_JWT = "HS512";
+    private static final String ST_TYP_JWT = "JWT";
+
     public JwtTokenHelper() {
+        //Constructor
     }
 
-    public String generateJwtTokenSucces(HashMap<String, Object> valToken) {
-        return Jwts.builder()
-                .setIssuer("APIActividad1")
-                .setSubject("WS_CONSUMES_API")
-                .setAudience("APP")
-                .setIssuedAt(new Date())
-                .setExpiration(getExpirationDateSuccess())
-                .setId(UUID.randomUUID().toString())
+    public String generateJwtTokenSucces(Map<String, Object> valToken) {
+
+        return Jwts
+                .builder()
+                .setHeader(this.generarMapaCabecera())
+                .setIssuer(ST_ISSUER_JWT)
+                .setSubject(ST_SUBJECT_JWT)
+                .setIssuedAt(new Date(currentTimeInMillis))
+                .setExpiration(getExpirationDate())
+                .signWith(SignatureAlgorithm.HS512, RestSecurityFilter.KEY)
                 .claim("valToken", valToken)
-                .signWith(RestSecurityFilter.KEY, SignatureAlgorithm.HS512) //Algoritmo de encriptación
                 .compact();
     }
 
-    public String generateJwtTokenError(HashMap<String, Object> valToken) {
+    public String generateJwtTokenError(Map<String, Object> valToken) {
         return Jwts
                 .builder()
-                .setIssuer("APIActividad1")
-                .setSubject("WS_CONSUMES_API")
-                .setAudience("APP")
-                .setIssuedAt(new Date())
-                .setExpiration(getExpirationDate())
+                .setHeader(this.generarMapaCabecera())
+                .setIssuer(ST_ISSUER_JWT)
+                .setSubject(ST_SUBJECT_JWT)
                 .claim("valToken", valToken)
-                .setId(UUID.randomUUID().toString())
-                .signWith(RestSecurityFilter.KEY, SignatureAlgorithm.HS512) //Algoritmo de encriptación
+
                 .compact();
     }
 
     public String issueTokenAuth() {
-        //Se crea token                
-        String jwtToken = Jwts.builder()
-                .setIssuer("APIActividad1")
-                .setSubject("WS_CONSUMES_API")
-                .setAudience("APP")
-                .setIssuedAt(new Date())
-                .setExpiration(getExpirationDate())
-                .setId(UUID.randomUUID().toString())
-                .signWith(RestSecurityFilter.KEY, SignatureAlgorithm.HS512) //Algoritmo de encriptación
+        //SE OBTIENE FECHA Y HORA PARA CALCULAR VIGENCIA DE TOKEN
+        Calendar cal = Calendar.getInstance();
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(cal.getTime());
+        cal1.add(Calendar.SECOND, 120);
+        return Jwts.builder()
+                .setHeader(this.generarMapaCabecera())
+                .setIssuer(ST_ISSUER_JWT)
+                .setSubject(ST_SUBJECT_JWT)
+                .claim("bGenerateToken", Boolean.TRUE)
+                .setIssuedAt(cal.getTime())
+                .setExpiration(cal1.getTime())
+                .signWith(SignatureAlgorithm.HS512, RestSecurityFilter.KEY) 
                 .compact();
-        return jwtToken;
-    }
-
-    public static Claims decodeJWT(String jwt) {
-        //This line will throw an exception if it is not a signed JWS (as expected)
-        Claims claims = Jwts.parser()
-                .setSigningKey(DatatypeConverter.parseBase64Binary(RestSecurityFilter.KEY.toString()))
-                .parseClaimsJws(jwt).getBody();
-        return claims;
     }
 
     private Date getExpirationDate() {
-        String sTimeOutSession = "5500";
+        String sTimeOutSession = "980";
         Long lTimeOutSession = new Long(sTimeOutSession);
-        lTimeOutSession = lTimeOutSession * 1000;
+        lTimeOutSession = lTimeOutSession * 100000;
         return new Date(currentTimeInMillis + lTimeOutSession);
     }
 
-    private Date getExpirationDateSuccess() {
-        String sTimeOutSession = "2250";
-        Long lTimeOutSession = new Long(sTimeOutSession);
-        lTimeOutSession = lTimeOutSession * 1000;
-        return new Date(currentTimeInMillis + lTimeOutSession);
+    private Map<String, Object> generarMapaCabecera() {
+        Map<String, Object> mapCabeceraToken = new HashMap<>();
+        //SE ESTABLECE LA CABECERA
+        mapCabeceraToken.put("typ", ST_TYP_JWT);
+        mapCabeceraToken.put("alg", ST_ALG_JWT);
+        return mapCabeceraToken;
+
     }
 }

@@ -11,6 +11,7 @@ import com.co.brayanfsilvar.ctrlactividades.general.ApplicationLog;
 import com.co.brayanfsilvar.ctrlactividades.general.Utilidad;
 import com.co.brayanfsilvar.ctrlactividades.model.response.ResponseGenerico;
 import com.co.brayanfsilvar.ctrlactividades.model.response.ResponsePersonas;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,7 +48,7 @@ public class PersonaService extends ApplicationLog {
         return personaDao.findAllPersonas();
     }
 
-    private List<Persona> obtenerEmpleados()  {
+    private List<Persona> obtenerEmpleados() {
         return personaDao.listarPersonasEmpleados();
     }
 
@@ -55,8 +56,12 @@ public class PersonaService extends ApplicationLog {
         ResponsePersonas responsePersonas = new ResponsePersonas();
         ResponseGenerico responseGenerico = new ResponseGenerico();
         try {
-            List<Persona> listEmpleados = this.obtenerEmpleados();
-            if (listEmpleados != null && !listEmpleados.isEmpty()) {
+            List<Persona> listEmpleadosTemp = this.obtenerEmpleados();
+            if (listEmpleadosTemp != null && !listEmpleadosTemp.isEmpty()) {
+                List<Persona> listEmpleados = new ArrayList<>();
+                for (Persona persona : listEmpleadosTemp) {
+                    listEmpleados.add(persona);
+                }
                 responseGenerico.setbSuccess(Boolean.TRUE);
                 responseGenerico.setsMsj("Se han obtenido los empleados de manera correcta.");
                 responsePersonas.setResponseGenerico(responseGenerico);

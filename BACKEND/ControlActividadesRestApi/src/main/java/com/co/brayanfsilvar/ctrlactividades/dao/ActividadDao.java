@@ -8,7 +8,6 @@ package com.co.brayanfsilvar.ctrlactividades.dao;
 import com.co.brayanfsilvar.ctrlactividades.domain.Actividad;
 import com.co.brayanfsilvar.ctrlactividades.general.GenericRepositoryJPA;
 import java.util.List;
-import javax.persistence.EntityManager;
 
 /**
  *

@@ -3,11 +3,10 @@ package com.co.brayanfsilvar.ctrlactividades.security;
 import com.co.brayanfsilvar.ctrlactividades.general.ApplicationLog;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
+
 import java.io.IOException;
 import java.security.Key;
 import javax.annotation.Priority;
-import javax.crypto.SecretKey;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.Produces;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -20,7 +19,7 @@ import io.jsonwebtoken.impl.crypto.MacProvider;
 
 /**
  *
- * @author Brian Cardenas
+ * @author Brayan F Silva R
  */
 @Provider
 @Secured

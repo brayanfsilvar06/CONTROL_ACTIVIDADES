@@ -68,68 +68,81 @@ public class Actividad implements Serializable {
     @ManyToOne(optional = false)
     private EstadoActividad iEstadoActividad;
 
+    @Transient
+    private Long lMarcaTiempoEjecucionEstimada;
+
+
     public Actividad() {
     }
 
     public Actividad(Long iCodigo) {
         this.iCodigo = iCodigo;
     }
-
-    public Long getiCodigo() {
+    
+    public Long getICodigo() {
         return iCodigo;
     }
 
-    public void setiCodigo(Long iCodigo) {
+    public void setICodigo(Long iCodigo) {
         this.iCodigo = iCodigo;
     }
 
-    public String getcTitulo() {
+    public String getCTitulo() {
         return cTitulo;
     }
 
-    public void setcTitulo(String cTitulo) {
+    public void setCTitulo(String cTitulo) {
         this.cTitulo = cTitulo;
     }
 
-    public String getcDescripcion() {
+    public String getCDescripcion() {
         return cDescripcion;
     }
 
-    public void setcDescripcion(String cDescripcion) {
+    public void setCDescripcion(String cDescripcion) {
         this.cDescripcion = cDescripcion;
     }
 
-    public Date getfFechaEstimadaEjecucion() {
+    public Date getFFechaEstimadaEjecucion() {
         return fFechaEstimadaEjecucion;
     }
 
-    public void setfFechaEstimadaEjecucion(Date fFechaEstimadaEjecucion) {
+    public void setFFechaEstimadaEjecucion(Date fFechaEstimadaEjecucion) {
         this.fFechaEstimadaEjecucion = fFechaEstimadaEjecucion;
     }
 
-    public long getiDiasRetraso() {
+    public long getIDiasRetraso() {
         return iDiasRetraso;
     }
 
-    public void setiDiasRetraso(long iDiasRetraso) {
+    public void setIDiasRetraso(long iDiasRetraso) {
         this.iDiasRetraso = iDiasRetraso;
     }
 
-    public Persona getiPersonaAsignada() {
+    public Persona getIPersonaAsignada() {
         return iPersonaAsignada;
     }
 
-    public void setiPersonaAsignada(Persona iPersonaAsignada) {
+    public void setIPersonaAsignada(Persona iPersonaAsignada) {
         this.iPersonaAsignada = iPersonaAsignada;
     }
 
-    public EstadoActividad getiEstadoActividad() {
+    public EstadoActividad getIEstadoActividad() {
         return iEstadoActividad;
     }
 
-    public void setiEstadoActividad(EstadoActividad iEstadoActividad) {
+    public void setIEstadoActividad(EstadoActividad iEstadoActividad) {
         this.iEstadoActividad = iEstadoActividad;
     }
+        
+    public Long getLMarcaTiempoEjecucionEstimada() {
+        return lMarcaTiempoEjecucionEstimada;
+    }
+
+    public void setLMarcaTiempoEjecucionEstimada(Long lMarcaTiempoEjecucionEstimada) {
+        this.lMarcaTiempoEjecucionEstimada = lMarcaTiempoEjecucionEstimada;
+    }
+
 
     @Override
     public int hashCode() {
