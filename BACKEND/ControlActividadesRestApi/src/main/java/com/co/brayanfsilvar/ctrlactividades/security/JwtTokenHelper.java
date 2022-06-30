@@ -5,6 +5,8 @@
  */
 package com.co.brayanfsilvar.ctrlactividades.security;
 
+
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Calendar;
@@ -19,6 +21,7 @@ import java.util.Map;
 public class JwtTokenHelper {
 
     private final Long currentTimeInMillis = System.currentTimeMillis();
+
     private static final String ST_ISSUER_JWT = "CTRL_ACTIVIDADES";
     private static final String ST_SUBJECT_JWT = "WS_CONSUMES_API";
     private static final String ST_ALG_JWT = "HS512";
@@ -49,6 +52,7 @@ public class JwtTokenHelper {
                 .setIssuer(ST_ISSUER_JWT)
                 .setSubject(ST_SUBJECT_JWT)
                 .claim("valToken", valToken)
+
                 .compact();
     }
 
@@ -82,5 +86,6 @@ public class JwtTokenHelper {
         mapCabeceraToken.put("typ", ST_TYP_JWT);
         mapCabeceraToken.put("alg", ST_ALG_JWT);
         return mapCabeceraToken;
+
     }
 }

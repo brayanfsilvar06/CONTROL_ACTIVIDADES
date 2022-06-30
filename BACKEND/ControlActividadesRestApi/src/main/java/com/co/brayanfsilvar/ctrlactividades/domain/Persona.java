@@ -81,9 +81,6 @@ public class Persona implements Serializable {
     @ManyToOne(optional = false)
     private TipoIdentificacion iTipoIdentificacion;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iPersonaAsignada")
-//    private List<Actividad> actividadList;
-
     public Persona() {
     }
 
@@ -169,14 +166,6 @@ public class Persona implements Serializable {
     public void setCNumeroIdentificacion(String cNumeroIdentificacion) {
         this.cNumeroIdentificacion = cNumeroIdentificacion;
     }
-
-//    public List<Actividad> getActividadList() {
-//        return actividadList;
-//    }
-//
-//    public void setActividadList(List<Actividad> actividadList) {
-//        this.actividadList = actividadList;
-//    }
 
     @Override
     public int hashCode() {

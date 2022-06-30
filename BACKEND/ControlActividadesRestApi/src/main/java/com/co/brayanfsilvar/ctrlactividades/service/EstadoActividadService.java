@@ -49,6 +49,7 @@ public class EstadoActividadService extends ApplicationLog {
     }
 
     public ResponseActividades obtenerListaEstadoActividades() {
+
         ResponseActividades responseActividades = new ResponseActividades();
         ResponseGenerico responseGenerico = new ResponseGenerico();
         try {

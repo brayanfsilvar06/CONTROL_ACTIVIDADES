@@ -60,6 +60,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
                 entityManager.getTransaction().rollback();
             }
             throw e;
+
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -87,6 +88,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
                 this.entityManager.getTransaction().rollback();
             }
             throw e;
+
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -111,6 +113,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
                 this.entityManager.getTransaction().rollback();
             }
             throw e;
+
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();
@@ -132,6 +135,7 @@ public class GenericRepositoryJPA<T> implements GenericRepository<T> {
             findClass = (T) this.entityManager.find(type, id);
         } catch (Exception e) {
             throw e;
+
         } finally {
             connDBJPA.closeEntityManager();
             this.closeEntityManager();

@@ -25,6 +25,7 @@ public class ActividadService extends ApplicationLog {
     private Utilidad util = null;
     private static final String ST_MSJ_ERROR_TECNICO = "SE HA PRESENTANDO UN ERROR INESPERADO. INTENTE DE NUEVO MÁS TARDE.";
 
+
     public ActividadService() {
         actividadDao = new ActividadDao();
         util = new Utilidad();

@@ -49,6 +49,7 @@ public class ConnectionDBJPA {
             }
         } catch (Exception e) {
             throw e;
+
         }
     }
 }

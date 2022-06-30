@@ -3,6 +3,7 @@ package com.co.brayanfsilvar.ctrlactividades.security;
 import com.co.brayanfsilvar.ctrlactividades.general.ApplicationLog;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
 import java.io.IOException;
 import java.security.Key;
 import javax.annotation.Priority;
@@ -59,4 +60,5 @@ public class RestSecurityFilter extends ApplicationLog implements ContainerReque
             requestContext.abortWith(Response.status(Response.Status.INTERNAL_SERVER_ERROR).build());
         }
     }
+
 }

@@ -71,13 +71,14 @@ public class Actividad implements Serializable {
     @Transient
     private Long lMarcaTiempoEjecucionEstimada;
 
+
     public Actividad() {
     }
 
     public Actividad(Long iCodigo) {
         this.iCodigo = iCodigo;
     }
-
+    
     public Long getICodigo() {
         return iCodigo;
     }
@@ -141,6 +142,7 @@ public class Actividad implements Serializable {
     public void setLMarcaTiempoEjecucionEstimada(Long lMarcaTiempoEjecucionEstimada) {
         this.lMarcaTiempoEjecucionEstimada = lMarcaTiempoEjecucionEstimada;
     }
+
 
     @Override
     public int hashCode() {
